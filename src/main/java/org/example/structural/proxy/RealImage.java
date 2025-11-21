@@ -1,0 +1,21 @@
+package org.example.structural.proxy;
+
+public class RealImage implements Image{
+
+    private String filename;
+
+    public RealImage(String filename) {
+        this.filename = filename;
+        loadFromDisk(); //لود تصویر از دیسک (فرضاً سنگین)
+    }
+
+    private void loadFromDisk() {
+        System.out.println("Loading " + filename + " from disk");
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Displaying " + filename );
+
+    }
+}

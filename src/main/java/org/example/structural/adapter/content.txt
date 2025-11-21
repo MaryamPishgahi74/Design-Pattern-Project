@@ -1,0 +1,21 @@
+دیزاین پترن آداپتور (Adapter) یکی از پترن‌های طراحی ساختاری (Structural) است که برای سازگار کردن دو اینترفیس یا کلاس ناسازگار استفاده می‌شود. به زبان ساده، آداپتور مثل یک مترجم یا مبدل عمل می‌کند که باعث می‌شود یک کلاس با رابطی که انتظارش را داریم کار کند، حتی اگر طراحی اصلیش با نیاز ما همخوانی نداشته باشد.
+
+There are some standard Adapters in Java core libraries:
+
+java.util.Arrays#asList()
+java.util.Collections#list()
+java.util.Collections#enumeration()
+java.io.InputStreamReader(InputStream) (returns a Reader object)
+java.io.OutputStreamWriter(OutputStream) (returns a Writer object)
+javax.xml.bind.annotation.adapters.XmlAdapter#marshal() and #unmarshal()
+
+فرض کن یک دستگاه داری که نیاز به شارژر با پریز آمریکایی داره، اما تو ایران هستی و پریزها اروپاییه. اینجا یه مبدل (آداپتور) لازم داری که پریز اروپایی رو به آمریکایی تبدیل کنه. تو برنامه‌نویسی هم آداپتور همین کار رو می‌کنه: یه کلاس یا اینترفیس که با سیستم ما سازگار نیست رو به شکلی تبدیل می‌کنه که بتونیم ازش استفاده کنیم.
+
+
+
+
+یه مثال واقعی از آداپتور تو جاوا بزن.
+
+پاسخ: یه مثال کلاسیک، استفاده از Arrays.asList() در جاواست که آرایه‌ها رو به List تبدیل می‌کنه. یا مثلاً InputStreamReader که InputStream (بایت‌ها) رو به Reader (کاراکترها) تبدیل می‌کنه:
+javaInputStream inputStream = new FileInputStream("file.txt");
+Reader reader = new InputStreamReader(inputStream);
